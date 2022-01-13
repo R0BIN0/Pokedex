@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap");
+
+.global-container {
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 4rem 0 2rem;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
+.search-input {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid rgba(100, 100, 111, 0.2);
+}
+
+.card-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.card {
+  padding: 4rem 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card h2 {
+  font-size: 0.9em;
+}
