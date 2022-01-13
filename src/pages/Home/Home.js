@@ -47,12 +47,4 @@ const Home = () => {
   );
 };
 
-// {item && item.filter((val) => keyword === undefined ? val : val.search.toLowerCase().includes(keyword.toLowerCase()) && val).map((item) => (
-//     <div onClick={() => addSP(item)} className="box-SP-modalAdd">
-//       <h2>{item.name}</h2>
-//       <h3>{item.reference}</h3>
-//       <p>{item.Id}</p>
-//     </div>
-//   ))}
-
 export default Home;
