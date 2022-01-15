@@ -3,33 +3,44 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
-  const [pokemon, setPokemon] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const [allPokemons, setAllPokemons] = useState([]);
 
-  console.log(pokemon);
+  const getAllPokemons = async () => {
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+    const data = await res.json();
+
+    function pokemonDetails(results) {
+      results.map(async (item) => {
+        await fetch(`https://pokeapi.co/api/v2/pokemon/${item.name}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setAllPokemons((currentArr) => [...currentArr, data])
+          );
+      });
+    }
+    pokemonDetails(data.results);
+  };
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=100&offset=200")
-      .then((res) => res.json())
-      .then((data) => setPokemon(data));
+    getAllPokemons();
   }, []);
 
   return (
-    <div className="global-container">
-      <h1>POKEDEX</h1>
+    <>
+      <div className="global-container">
+        <h1>POKEDEX</h1>
 
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Recherche"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-      />
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Recherche"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
 
-      <div className="card-grid">
-        {pokemon &&
-          pokemon.results &&
-          pokemon.results
+        <div className="card-grid">
+          {allPokemons
             .filter((val) =>
               keyword === undefined
                 ? val
@@ -37,13 +48,32 @@ const Home = () => {
             )
             .map((item, index) => (
               <Link to={`/pokemon/${item.name}`}>
-                <div className="card" key={index}>
-                  <h2>{item.name}</h2>
+                <div className="card">
+                  <div
+                    data-color-bg={item.types[0].type.name}
+                    className="top-card"
+                  >
+                    <img src={item.sprites.front_default} alt="" />
+                  </div>
+                  <div className="bottom-card">
+                    <h2>{item.name}</h2>
+                    <div className="left-card-type">
+                      <span data-color-bg={item.types[0].type.name}>
+                        {item.types[0].type.name}
+                      </span>
+                      {item.types.length !== 1 && (
+                        <span data-color-bg={item.types[1].type.name}>
+                          {item.types[1].type.name}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

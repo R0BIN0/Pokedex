@@ -1,8 +1,342 @@
-body{
-    font-family: 'Readex Pro', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+button {
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* span[data-color~="grass"] {
+  background: hsl(168, 67%, 75%);
+}
+span[data-color~="ground"] {
+  background: hsl(54, 67%, 75%);
+}
+span[data-color~="dragon"] {
+  background: hsl(253, 67%, 75%);
+}
+span[data-color~="fire"] {
+  background: hsl(0, 67%, 75%);
+}
+span[data-color~="electric"] {
+  background: hsl(61, 67%, 75%);
+}
+span[data-color~="fairy"] {
+  background: hsl(332, 67%, 75%);
+}
+span[data-color~="poison"] {
+  background: hsl(273, 67%, 75%);
+}
+span[data-color~="bug"] {
+  background: hsl(86, 67%, 75%);
+}
+span[data-color~="water"] {
+  background: hsl(212, 67%, 75%);
+}
+span[data-color~="normal"] {
+  background: hsl(213, 33%, 85%);
+}
+span[data-color~="psychic"] {
+  background: hsl(298, 67%, 75%);
+}
+span[data-color~="flying"] {
+  background: hsl(223, 38%, 85%);
+}
+span[data-color~="fighting"] {
+  background: hsl(12, 67%, 75%);
+}
+span[data-color~="rock"] {
+  background: hsl(32, 67%, 75%);
+}
+span[data-color~="ghost"] {
+  background: hsl(244, 67%, 75%);
+}
+span[data-color~="ice"] {
+  background: hsl(187, 67%, 75%);
+} */
+
+[data-color-bg~="grass"] {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 213, 179, 1) 0%,
+    rgba(42, 213, 142, 1) 100%
+  );
+  color: white;
+
+}
+[data-color-bg~="ground"] {
+  background: linear-gradient(
+    135deg,
+    rgb(187, 172, 40) 0%,
+    rgba(213, 196, 42, 1) 100%
+  );
+  color: black;
+  color: white;
+
+}
+[data-color-bg~="dragon"] {
+  background: linear-gradient(
+    135deg,
+    hsl(253, 67%, 30%) 0%,
+    hsl(253, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="fire"] {
+  background: linear-gradient(
+    135deg,
+    hsl(0, 67%, 30%) 0%,
+    hsl(0, 67%, 50%) 100%
+  );
+  color: white;
+}
+[data-color-bg~="electric"] {
+  background: linear-gradient(
+    135deg,
+    hsl(64, 84%, 49%) 0%,
+    hsl(61, 67%, 50%) 100%
+  );
+  color: black;
+  
+}
+[data-color-bg~="fairy"] {
+  background: linear-gradient(
+    135deg,
+    hsl(332, 67%, 40%) 0%,
+    hsl(332, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="poison"] {
+  background: linear-gradient(
+    135deg,
+    hsl(273, 67%, 35%) 0%,
+    hsl(273, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="bug"] {
+  background: linear-gradient(
+    135deg,
+    hsl(86, 67%, 40%) 0%,
+    hsl(86, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="water"] {
+  background: linear-gradient(
+    135deg,
+    hsl(212, 67%, 40%) 0%,
+    hsl(212, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="normal"] {
+  background: linear-gradient(
+    135deg,
+    hsl(213, 33%, 80%) 0%,
+    hsl(213, 33%, 90%) 100%
+  );
+
+  color: white;
+
+}
+[data-color-bg~="psychic"] {
+  background: linear-gradient(
+    135deg,
+    hsl(298, 67%, 40%) 0%,
+    hsl(298, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="flying"] {
+  background: linear-gradient(
+    135deg,
+    hsl(223, 56%, 65%) 0%,
+    hsl(223, 56%, 70%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="fighting"] {
+  background: linear-gradient(
+    135deg,
+    hsl(12, 67%, 55%) 0%,
+    hsl(12, 67%, 60%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="rock"] {
+  background: linear-gradient(
+    135deg,
+    hsl(32, 67%, 40%) 0%,
+    hsl(32, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="ghost"] {
+  background: linear-gradient(
+    135deg,
+    hsl(244, 67%, 35%) 0%,
+    hsl(244, 67%, 50%) 100%
+  );
+
+  color: white;
+}
+[data-color-bg~="ice"] {
+  background: linear-gradient(
+    135deg,
+    hsl(187, 67%, 40%) 0%,
+    hsl(187, 67%, 50%) 100%
+  );
+  color: white;
+
 }
